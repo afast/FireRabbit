@@ -32,7 +32,7 @@ public class Restante extends Activity {
         HttpURLConnection con = null;
 
         try{
-            URL url = new URL("http://narwhalware.com/banred/FLowkKJAQwC.php");
+            URL url = new URL(Parametros.URLSaldo());
 
             con = (HttpURLConnection) url.openConnection();
             con.setReadTimeout(10000);

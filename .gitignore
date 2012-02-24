@@ -2,3 +2,5 @@ bin/
 gen/
 out/
 PlataRestante.apk
+src/com/narwhalware/platarestante/Parametros.java
+.idea/
