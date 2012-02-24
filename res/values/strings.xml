@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Guita Manager</string>
+    <string name="monto">Monto</string>
+    <string name="categoria">Categoria</string>
+    <string name="guardar">Guardar</string>
+    <string name="agregar_categoria">Agregar categoria</string>
+    <string name="ver_saldo">Saldo</string>
+    <string name="subir_datos">Subir datos</string>
+    <string name="nombre_gasto">Descripcion</string>
+    <string name="nombre_categoria">Nombre</string>
+</resources>
