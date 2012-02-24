@@ -1,0 +1,5 @@
+* cambiar todas las ocurrencias de "descripcion" por subcategoria
+* reordenar campos: categoria, monto, subcategoria
+* trim y downcase de input del usuario
+* mejorar usabilidad de pantalla de registro
+* mostrar dialogo de cargando cuando abre saldo
