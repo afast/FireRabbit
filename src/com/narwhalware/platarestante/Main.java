@@ -84,9 +84,12 @@ public class Main extends Activity {
         Spinner spinnerCategoria = (Spinner)findViewById(R.id.categoria);
         Categoria categoria = categorias.get(spinnerCategoria.getSelectedItemPosition());
         TextView tvSubcategoria = (TextView) findViewById(R.id.subcategoria);
-        String gastoStr = tvSubcategoria.getText().toString();
+        String subcategoria = tvSubcategoria.getText().toString();
 
-        Gasto gasto = new Gasto(monto,categoria,gastoStr);
+        subcategoria = subcategoria.toLowerCase();
+        subcategoria = subcategoria.trim();
+
+        Gasto gasto = new Gasto(monto,categoria,subcategoria);
         GastosDbAdapter gastosDbAdapter = new GastosDbAdapter(this);
         gastosDbAdapter.abrir();
         gastosDbAdapter.guardarGasto(gasto);
