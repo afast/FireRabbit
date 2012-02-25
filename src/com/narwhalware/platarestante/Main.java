@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.narwhalware.platarestante.entidades.Categoria;
 import com.narwhalware.platarestante.entidades.Gasto;
 
@@ -64,6 +65,9 @@ public class Main extends Activity {
                 return true;
             case R.id.subir_datos:
                 return true;
+            case R.id.listado_gastos:
+                startActivity(new Intent(this.context, ListadoGastos.class));
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -79,16 +83,21 @@ public class Main extends Activity {
         int monto = Integer.parseInt(tvMonto.getText().toString());
         Spinner spinnerCategoria = (Spinner)findViewById(R.id.categoria);
         Categoria categoria = categorias.get(spinnerCategoria.getSelectedItemPosition());
-        TextView tvGasto = (TextView) findViewById(R.id.nombre_gasto);
-        String gastoStr = tvGasto.getText().toString();
-        
+        TextView tvSubcategoria = (TextView) findViewById(R.id.subcategoria);
+        String gastoStr = tvSubcategoria.getText().toString();
 
         Gasto gasto = new Gasto(monto,categoria,gastoStr);
         GastosDbAdapter gastosDbAdapter = new GastosDbAdapter(this);
         gastosDbAdapter.abrir();
         gastosDbAdapter.guardarGasto(gasto);
+        gastosDbAdapter.cerrar();
         
-        List<Gasto> prueba = gastosDbAdapter.obtenerGastos();
-        String a = "";
+        tvMonto.setText("");
+        spinnerCategoria.setSelection(0);
+        tvSubcategoria.setText("");
+        
+        tvMonto.clearFocus();
+
+        Toast.makeText(this, "Gasto guardado ", Toast.LENGTH_LONG).show();
     }
 }

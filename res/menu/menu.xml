@@ -10,4 +10,8 @@
     <item android:id="@+id/subir_datos"
           android:title="@string/subir_datos">
     </item>
+    <item android:id="@+id/listado_gastos"
+          android:title="@string/ver_gastos">
+    </item>
+
 </menu>

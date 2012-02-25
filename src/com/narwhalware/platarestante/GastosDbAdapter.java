@@ -34,7 +34,7 @@ public class GastosDbAdapter {
         initialValues.put("fecha", gasto.getFecha());
         initialValues.put("id_categoria", gasto.getCategoria().getId());
         initialValues.put("monto",gasto.getMonto());
-        initialValues.put("nombre",gasto.getGasto());
+        initialValues.put("subcategoria",gasto.getSubcategoria());
 
         return db.insert("gastos",null,initialValues);
     }
@@ -45,7 +45,7 @@ public class GastosDbAdapter {
                 "fecha",
                 "id_categoria",
                 "monto",
-                "nombre"
+                "subcategoria"
         }, null, null, null, null, null);
     }
 
@@ -53,14 +53,18 @@ public class GastosDbAdapter {
         Cursor cursor = cursorGastos();
         List<Gasto> gastos = new ArrayList<Gasto>();
 
+        CategoriasDbAdapter categoriasDbAdapter = new CategoriasDbAdapter(context);
+        categoriasDbAdapter.abrir();
         if(cursor.getCount() > 0){
             while(cursor.moveToNext()){
                 Gasto gasto = new Gasto(cursor.getInt(cursor.getColumnIndex("monto")),
-                        null,cursor.getString(cursor.getColumnIndex("nombre")),
+                        categoriasDbAdapter.obtenerCategoria(cursor.getLong(cursor.getColumnIndex("id_categoria"))),
+                        cursor.getString(cursor.getColumnIndex("subcategoria")),
                         cursor.getString(cursor.getColumnIndex("fecha")));
                 gastos.add(gasto);
             }
             cursor.close();
+            categoriasDbAdapter.cerrar();
         }
         return gastos;
     }

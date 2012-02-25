@@ -54,6 +54,19 @@ public class CategoriasDbAdapter {
         }
         return categorias;
     }
+    
+    public Categoria obtenerCategoria(long id){
+        Cursor cursor = db.query("categorias", new String[] {"_id", "nombre"}, "_id = "+ id, null, null, null, null);
+        if(cursor.getCount() == 1){
+            cursor.moveToNext();
+            Categoria categoria = new Categoria(cursor.getLong(cursor.getColumnIndex("_id")),
+                    cursor.getString(cursor.getColumnIndex("nombre")));
+            return categoria;
+        }
+        else{
+            return null;
+        }
+    }
 
 
 

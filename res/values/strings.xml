@@ -8,5 +8,6 @@
     <string name="ver_saldo">Saldo</string>
     <string name="subir_datos">Subir datos</string>
     <string name="nombre_gasto">Descripcion</string>
-    <string name="nombre_categoria">Nombre</string>
+    <string name="subcategoria">Subcategoria</string>
+    <string name="ver_gastos">Ver Gastos</string>
 </resources>

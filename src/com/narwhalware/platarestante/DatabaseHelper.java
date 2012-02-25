@@ -19,7 +19,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "fecha text, " +
                 "id_categoria integer, " +
                 "monto integer," +
-                "nombre text);");
+                "subcategoria text);");
     }
 
     @Override
